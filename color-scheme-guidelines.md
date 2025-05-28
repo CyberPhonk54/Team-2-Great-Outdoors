@@ -2,7 +2,7 @@
 
 ##  Recommended Number of Colors
 
-To keep the design clean, professional, and accessible, we suggest the following:
+To keep the design clean, professional, and accessible, I suggest the following:
 
 - **1 Primary Color**: Main brand color for buttons, links, headers.
 - **1–2 Secondary Colors**: Supporting shades for sections or icons.
