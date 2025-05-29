@@ -1,22 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Welcome to the Great Outdoors!</title>
-<link rel="stylesheet" type="text/css" href="styles/branchlevel.css">
-<script src="scripts/myscripts.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Outdoors - Ferry</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+    <!-- Skip link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<h1>A Ferry Expedition</h1>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" role="navigation" aria-label="Main navigation">
+        <h1>Great Outdoors</h1>
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="falls.html">Falls</a></li>
+            <li><a href="ferry.html" aria-current="page">Ferry</a></li>
+            <li><a href="forest.html">Forest</a></li>
+            <li><a href="lake.html">Lake</a></li>
+            <li><a href="mountain.html">Mountain</a></li>
+            <li><a href="park.html">Park</a></li>
+        </ul>
+    </nav>
 
-<img src = "images/ferry.jpg" alt="ferry" onmouseover="showAlt(this)" onmouseout="hideAlt(this)">
-<figcaption>Underway</figcaption>
-
-<p id="alttext" style="font-size:50px"> <p>
-
-<ul>
-<li><a href="index.html">Table of Contents</a></li>
-</ul>
-
+    <!-- Main Content Area -->
+    <main id="main-content">
+        <h2>Ferry</h2>
+        <p>Take a scenic ferry ride across the waters and enjoy the peaceful journey through nature's waterways.</p>
+        <img src="images/ferry.jpg" alt="Scenic Ferry Ride" onmouseover="showAlt(this)" onmouseout="hideAlt(this)">
+        <figcaption>Sail Away</figcaption>
+    </main>
 </body>
 </html>
