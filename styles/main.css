@@ -1,0 +1,75 @@
+/* Main styles for Great Outdoors website */
+:root {
+    --primary-color: #2c5530;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --nav-hover-color: #1a331d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Navigation Styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    padding: 2rem 1rem;
+    color: white;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-list li {
+    margin-bottom: 1rem;
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+    background-color: var(--nav-hover-color);
+    outline: 2px solid white;
+}
+
+/* Main Content Area */
+main {
+    flex: 1;
+    padding: 2rem;
+    background-color: var(--background-color);
+}
+
+/* Skip to main content link - accessibility feature */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1em;
+    background-color: white;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    left: 0;
+    top: 0;
+} 
