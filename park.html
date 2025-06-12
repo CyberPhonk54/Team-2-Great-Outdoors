@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Welcome to the Great Outdoors!</title>
-<link rel="stylesheet" type="text/css" href="styles/branchlevel.css">
-<script src="scripts/myscripts.js"></script>
+  <meta charset="UTF-8">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>Sign In</h1>
+  <form id="login-form">
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br><br>
 
-<h1>Retreat in the Park</h1>
+    <label for="password">Password:</label>
+    <input type="password" id="password" required><br><br>
 
-<img src = "images/park.jpg" alt="Park" onmouseover="showAlt(this)" onmouseout="hideAlt(this)">
-<figcaption>Read Up</figcaption>
+    <button type="submit">Sign In</button>
+  </form>
 
-<p id="alttext" style="font-size:50px"> <p>
-
-<ul>
-<li><a href="index.html">Table of Contents</a></li>
-</ul>
-
+  <script src="signin.js"></script>
 </body>
 </html>
