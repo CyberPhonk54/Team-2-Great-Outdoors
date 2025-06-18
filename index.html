@@ -1,30 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Welcome to the Great Outdoors!</title>
-<link rel="stylesheet" type="text/css" href="styles/toplevel.css">
-<script src="scripts/myscripts.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Outdoors - Home</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
-
 <body>
+    <!-- Skip link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<h1>Welcome to the Great Outdoors!</h1>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" role="navigation" aria-label="Main navigation">
+        <h1>Great Outdoors</h1>
+        <ul class="nav-list">
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="falls.html">Falls</a></li>
+            <li><a href="ferry.html">Ferry</a></li>
+            <li><a href="forest.html">Forest</a></li>
+            <li><a href="lake.html">Lake</a></li>
+            <li><a href="mountain.html">Mountain</a></li>
+            <li><a href="park.html">Park</a></li>
+        </ul>
+    </nav>
 
+    <!-- Main Content Area -->
+    <main id="main-content">
+        <h2>Welcome to Great Outdoors</h2>
+        <p>Discover the beauty of nature through our collection of outdoor destinations. Use the navigation menu to explore different locations.</p>
 
-<img src = "images/outdoors.jpg" alt="Great Outdoors" onmouseover="showAlt(this)" onmouseout="hideAlt(this)">
-<figcaption>Your Adventure Awaits!</figcaption>
-
-<p id="alttext" style="font-size:50px"> <p>
-
-<ul>
-<li><a href="mountain.html">Climb the Mountain</a></li>
-<li><a href="forest.html">Wander the Forest</a></li>
-<li><a href="falls.html">See the Falls</a></li>
-<li><a href="ferry.html">Ride the Ferry</a></li>
-<li><a href="lake.html">Walk Around the Lake</a></li>
-<li><a href="park.html">Read in the Park</a></li>
-</ul>
-
+        <!-- Logo Carousel -->
+        <h3 class="sponsor-heading">Meet our sponsors</h3>
+        <section class="logo-carousel" aria-label="Outdoor Brand Partners">
+          <div class="carousel-track">
+            <img src="images/northface.png" alt="The North Face logo">
+            <img src="images/columbia.png" alt="Columbia logo">
+            <img src="images/arcteryx.png" alt="Arc'teryx logo">
+            <img src="images/patagonia.png" alt="Patagonia logo">
+            <img src="images/rei.png" alt="REI Co-op logo">
+            <img src="images/blackdiamond.png" alt="Black Diamond logo">
+            <!-- Duplicate logos for seamless looping -->
+            <img src="images/northface.png" alt="The North Face logo" aria-hidden="true">
+            <img src="images/columbia.png" alt="Columbia logo" aria-hidden="true">
+            <img src="images/arcteryx.png" alt="Arc'teryx logo" aria-hidden="true">
+            <img src="images/patagonia.png" alt="Patagonia logo" aria-hidden="true">
+            <img src="images/rei.png" alt="REI Co-op logo" aria-hidden="true">
+            <img src="images/blackdiamond.png" alt="Black Diamond logo" aria-hidden="true">
+          </div>
+        </section>
+    </main>
 </body>
 </html>
