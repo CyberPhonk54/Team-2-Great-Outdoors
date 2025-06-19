@@ -1,30 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Welcome to the Great Outdoors!</title>
-<link rel="stylesheet" type="text/css" href="styles/toplevel.css">
-<script src="scripts/myscripts.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Outdoors - Home</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
-
 <body>
+    <noscript>
+      <div style="color: red; text-align: center; margin: 2rem; font-size: 1.2rem;">
+        This site requires JavaScript to function. Please enable JavaScript in your browser.
+      </div>
+    </noscript>
+    <!-- Sign-in Form -->
+    <div id="signin-container" style="display:none;">
+        <h2>Sign In</h2>
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required><br><br>
+            <button type="submit">Sign In</button>
+        </form>
+        <div id="login-error" style="color: red; display: none;">Invalid credentials. Please try again.</div>
+    </div>
 
-<h1>Welcome to the Great Outdoors!</h1>
+    <!-- Main Content (hidden by default) -->
+    <div id="main-content-wrapper" style="display:none;">
+        <!-- Skip link for keyboard users -->
+        <a href="#main-content" class="skip-link">Skip to main content</a>
 
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" role="navigation" aria-label="Main navigation">
+            <h1>Great Outdoors</h1>
+            <ul class="nav-list">
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="falls.html">Falls</a></li>
+                <li><a href="ferry.html">Ferry</a></li>
+                <li><a href="forest.html">Forest</a></li>
+                <li><a href="lake.html">Lake</a></li>
+                <li><a href="mountain.html">Mountain</a></li>
+                <li><a href="park.html">Park</a></li>
+            </ul>
+        </nav>
 
-<img src = "images/outdoors.jpg" alt="Great Outdoors" onmouseover="showAlt(this)" onmouseout="hideAlt(this)">
-<figcaption>Your Adventure Awaits!</figcaption>
+        <!-- Main Content Area -->
+        <main id="main-content">
+            <h2>Welcome to Great Outdoors</h2>
+            <p>Discover the beauty of nature through our collection of outdoor destinations. Use the navigation menu to explore different locations.</p>
+            <h3 class="sponsor-heading">Meet our sponsors</h3>
+            <section class="logo-carousel" aria-label="Outdoor Brand Partners">
+                <div class="carousel-track">
+                    <img src="images/northface.png" alt="The North Face logo">
+                    <img src="images/columbia.png" alt="Columbia logo">
+                    <img src="images/arcteryx.png" alt="Arc'teryx logo">
+                    <img src="images/patagonia.png" alt="Patagonia logo">
+                    <img src="images/rei.png" alt="REI Co-op logo">
+                    <img src="images/blackdiamond.png" alt="Black Diamond logo">
+                    <!-- Duplicate logos for seamless looping -->
+                    <img src="images/northface.png" alt="The North Face logo" aria-hidden="true">
+                    <img src="images/columbia.png" alt="Columbia logo" aria-hidden="true">
+                    <img src="images/arcteryx.png" alt="Arc'teryx logo" aria-hidden="true">
+                    <img src="images/patagonia.png" alt="Patagonia logo" aria-hidden="true">
+                    <img src="images/rei.png" alt="REI Co-op logo" aria-hidden="true">
+                    <img src="images/blackdiamond.png" alt="Black Diamond logo" aria-hidden="true">
+                </div>
+            </section>
+        </main>
+    </div>
 
-<p id="alttext" style="font-size:50px"> <p>
+    <script>
+    // Example preset credentials
+    const presetEmail = "user@example.com";
+    const presetPassword = "password123";
+    const preset2FACode = "123456";
 
-<ul>
-<li><a href="mountain.html">Climb the Mountain</a></li>
-<li><a href="forest.html">Wander the Forest</a></li>
-<li><a href="falls.html">See the Falls</a></li>
-<li><a href="ferry.html">Ride the Ferry</a></li>
-<li><a href="lake.html">Walk Around the Lake</a></li>
-<li><a href="park.html">Read in the Park</a></li>
-</ul>
+    function showMainContent() {
+        document.getElementById('signin-container').style.display = 'none';
+        document.getElementById('main-content-wrapper').style.display = 'flex';
+    }
+    function showSignIn() {
+        document.getElementById('signin-container').style.display = 'block';
+        document.getElementById('main-content-wrapper').style.display = 'none';
+    }
 
+    // On page load, check sessionStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      if (sessionStorage.getItem('signedIn') === 'true') {
+          showMainContent();
+      } else {
+          showSignIn();
+      }
+    });
+
+    // Clear session on browser/tab close
+    window.addEventListener('beforeunload', function() {
+      sessionStorage.removeItem('signedIn');
+    });
+
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        if (email === presetEmail && password === presetPassword) {
+            // Prompt for 2FA code
+            const code = prompt('Enter the 2FA code:');
+            if (code === preset2FACode) {
+                sessionStorage.setItem('signedIn', 'true');
+                showMainContent();
+            } else {
+                document.getElementById('login-error').textContent = 'Incorrect 2FA code.';
+                document.getElementById('login-error').style.display = 'block';
+            }
+        } else {
+            document.getElementById('login-error').textContent = 'Invalid credentials. Please try again.';
+            document.getElementById('login-error').style.display = 'block';
+        }
+    });
+    </script>
 </body>
 </html>
