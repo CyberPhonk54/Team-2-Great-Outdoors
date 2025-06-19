@@ -73,6 +73,7 @@
     // Example preset credentials
     const presetEmail = "user@example.com";
     const presetPassword = "password123";
+    const preset2FACode = "123456";
 
     function showMainContent() {
         document.getElementById('signin-container').style.display = 'none';
@@ -92,14 +93,27 @@
       }
     });
 
+    // Clear session on browser/tab close
+    window.addEventListener('beforeunload', function() {
+      sessionStorage.removeItem('signedIn');
+    });
+
     document.getElementById('login-form').addEventListener('submit', function(e) {
         e.preventDefault();
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         if (email === presetEmail && password === presetPassword) {
-            sessionStorage.setItem('signedIn', 'true');
-            showMainContent();
+            // Prompt for 2FA code
+            const code = prompt('Enter the 2FA code:');
+            if (code === preset2FACode) {
+                sessionStorage.setItem('signedIn', 'true');
+                showMainContent();
+            } else {
+                document.getElementById('login-error').textContent = 'Incorrect 2FA code.';
+                document.getElementById('login-error').style.display = 'block';
+            }
         } else {
+            document.getElementById('login-error').textContent = 'Invalid credentials. Please try again.';
             document.getElementById('login-error').style.display = 'block';
         }
     });
